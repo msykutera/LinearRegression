@@ -9,7 +9,6 @@ namespace Syku.LinearRegression
         
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseUrls("http://localhost:6555")
                 .UseStartup<Startup>()
                 .Build();
     }
