@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syku.LinearRegression", "Syku.LinearRegression\Syku.LinearRegression.csproj", "{6CEC5223-A694-46F0-BBCA-E4CD0E9FA9D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syku.LinearRegression.Tests", "Syku.LinearRegression.Tests\Syku.LinearRegression.Tests.csproj", "{D320DFF2-9C40-4CAF-AFC5-26EE9A966DA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6CEC5223-A694-46F0-BBCA-E4CD0E9FA9D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CEC5223-A694-46F0-BBCA-E4CD0E9FA9D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CEC5223-A694-46F0-BBCA-E4CD0E9FA9D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D320DFF2-9C40-4CAF-AFC5-26EE9A966DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D320DFF2-9C40-4CAF-AFC5-26EE9A966DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D320DFF2-9C40-4CAF-AFC5-26EE9A966DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D320DFF2-9C40-4CAF-AFC5-26EE9A966DA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
