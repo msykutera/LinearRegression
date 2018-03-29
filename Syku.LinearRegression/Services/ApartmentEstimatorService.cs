@@ -5,7 +5,7 @@ namespace Syku.LinearRegression
 {
     public class ApartmentEstimatorService : IApartmentEstimator
     {
-        private IRepository<Apartment> _repository;
+        private readonly IRepository<Apartment> _repository;
 
         public ApartmentEstimatorService(IRepository<Apartment> repository)
         {

@@ -4,7 +4,7 @@ namespace Syku.LinearRegression
 {
     public class ApartmentRepository : IRepository<Apartment>
     {
-        private List<Apartment> _apartments = new List<Apartment>();
+        private readonly List<Apartment> _apartments = new List<Apartment>();
 
         public IEnumerable<Apartment> GetAll() => _apartments;
 

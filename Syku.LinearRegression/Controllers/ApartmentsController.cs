@@ -5,8 +5,8 @@ namespace Syku.LinearRegression
     [Route("api/apartments")]
     public class ApartmentsController : Controller
     {
-        private IRepository<Apartment> _apartmentRepository;
-        private IApartmentEstimator _apartmentEstimator;
+        private readonly IRepository<Apartment> _apartmentRepository;
+        private readonly IApartmentEstimator _apartmentEstimator;
 
         public ApartmentsController(
             IRepository<Apartment> apartmentRepository,
