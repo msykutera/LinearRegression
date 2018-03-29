@@ -1,22 +1,24 @@
 using FluentAssertions;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
 namespace Syku.LinearRegression
 {
-    public class ApartmentControllerTests
+    public class ApartmentControllerTests : IDisposable
     {
-        private ApartmentsController GetController()
+        private readonly ApartmentsController _controller;
+
+        public ApartmentControllerTests()
         {
             var repository = new ApartmentRepository();
             var estimator = new ApartmentEstimatorService(repository);
-            return new ApartmentsController(repository, estimator);
+            _controller = new ApartmentsController(repository, estimator);
         }
 
         [Fact]
         public void PriceIsEstimatedCorrectly()
         {
-            var controller = GetController();
             var apartments = new List<ApartmentViewModel>
             {
                 new ApartmentViewModel { Price = 100000, Surface = 50.0 },
@@ -26,9 +28,9 @@ namespace Syku.LinearRegression
                 new ApartmentViewModel { Price = 1000000, Surface = 56.0 },
             };
 
-            foreach (var apartment in apartments) controller.Add(apartment);
+            foreach (var apartment in apartments) _controller.Add(apartment);
 
-            var result = controller.EstimatePrice(80.0);
+            var result = _controller.EstimatePrice(80.0);
 
             result.Should().Be(363464);
         }
@@ -36,7 +38,6 @@ namespace Syku.LinearRegression
         [Fact]
         public void SurfaceIsEstimatedCorrectly()
         {
-            var controller = GetController();
             var apartments = new List<ApartmentViewModel>
             {
                 new ApartmentViewModel { Price = 100000, Surface = 50.0 },
@@ -46,11 +47,16 @@ namespace Syku.LinearRegression
                 new ApartmentViewModel { Price = 1000000, Surface = 56.0 },
             };
 
-            foreach (var apartment in apartments) controller.Add(apartment);
+            foreach (var apartment in apartments) _controller.Add(apartment);
 
-            var result = controller.EstimateSurface(560000);
+            var result = _controller.EstimateSurface(560000);
 
             result.Should().BeApproximately(63.26, 0.1);
+        }
+
+        public void Dispose()
+        {
+            _controller.Dispose();
         }
     }
 }
